@@ -24,7 +24,7 @@ services:
     # AUTH_KEY must be provided, short-lived and set by scripts/update-dns-token.sh
     # DNS_ZONE_ID from https://console.cloud.yandex.com/link/dns or
     # CLOUD_ID, FOLDER_ID from https://console.cloud.yandex.com/cloud can be provided
-    env_file: private/environment/dnsrobocert.env
+    env_file: ssl/dnsrobocert.env
     # used in config/dnsrobocert.yml
     environment:
       - PROVIDER=./${PROVIDER}
