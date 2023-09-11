@@ -8,6 +8,37 @@ networks:
   bitrixdock:
 
 services:
+  certbot:
+    image: adferrand/dnsrobocert
+    hostname: certbot
+    container_name: certbot
+    volumes:
+      - ./private/letsencrypt:/etc/letsencrypt
+      # needed for nginx container autorestart, https://dnsrobocert.readthedocs.io/en/latest/configuration_reference.html#autorestart
+      - /var/run/docker.sock:/var/run/docker.sock
+      # should be in the following format:
+      # https://dnsrobocert.readthedocs.io/en/latest/user_guide.html#configuration
+      - ./ssl/dnsrobocert.yml:/etc/dnsrobocert/config.yml
+
+    # For yandexcloud:
+    # AUTH_KEY must be provided, short-lived and set by scripts/update-dns-token.sh
+    # DNS_ZONE_ID from https://console.cloud.yandex.com/link/dns or
+    # CLOUD_ID, FOLDER_ID from https://console.cloud.yandex.com/cloud can be provided
+    env_file: private/environment/dnsrobocert.env
+    # used in config/dnsrobocert.yml
+    environment:
+      - PROVIDER=./${PROVIDER}
+      - EMAIL=./${EMAIL}
+      - DOMAIN=./${DOMAIN}
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+    restart: unless-stopped
+  
   php:
     build: ./${PHP_VERSION}
     container_name: php
@@ -17,7 +48,7 @@ services:
       - db
       - memcached
     environment:
-      - TZ=Europe/Moscow
+      - TZ=Africa/Nairobi
     stdin_open: true
     tty: true
     networks:

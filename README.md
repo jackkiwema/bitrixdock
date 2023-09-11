@@ -180,6 +180,42 @@ git push -u origin new_branch
 9. Вы прекрасны! ;)
 
 
+# Install BitrixDock on Ubuntu 20.04
+```bash
+# Docker and Docker Compose Install
+sudo su -
+curl -fsSL https://get.docker.com -o docker.sh
+bash ./docker.sh
+curl -L "https://github.com/docker/compose/releases/download/v2.20.3/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+echo "alias dc='docker-compose'" >> ~/.bash_aliases
+source ~/.bashrc
+
+# Bitrix Files Download
+mkdir -p /var/www/bitrix
+cd /var/www/bitrix
+wget https://www.1c-bitrix.ru/download/scripts/bitrixsetup.php
+cd /var/www/
+git clone https://github.com/bitrixdock/bitrixdock.git
+cd /var/ && chmod -R 775 www/ && chown -R root:www-data www/
+cd /var/www/bitrixdock
+
+# Environment Setup
+cp -f .env_template .env
+
+# Starting and Stopping Bitrixdock
+docker compose -p bitrixdock up -d 
+
+# Install Bitrix
+
+# DB Configuration
+db name: db
+User: bitrix
+password: 123
+db: bitrix
+```
+
+
 
 
 
