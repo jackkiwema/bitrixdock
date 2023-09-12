@@ -23,12 +23,12 @@ BitrixDock запускает демо Битрикса предоставляя
 
 ## Автоматическая установка для WSL (Рекомендуем)
 ```
-curl -fsSL https://raw.githubusercontent.com/bitrixdock/bitrixdock/master/install.wsl.sh?$(date +%s) -o install.wsl.sh && chmod +x install.wsl.sh && sh install.wsl.sh
+curl -fsSL https://raw.githubusercontent.com/jackkiwema/bitrixdock/master/install.wsl.sh?$(date +%s) -o install.wsl.sh && chmod +x install.wsl.sh && sh install.wsl.sh
 ```
 
 ## Автоматическая установка для Виртуальной машины
 ```
-curl -fsSL https://raw.githubusercontent.com/bitrixdock/bitrixdock/master/install.sh -o install.sh && chmod +x install.sh && sh install.sh
+curl -fsSL https://raw.githubusercontent.com/jackkiwema/bitrixdock/master/install.sh -o install.sh && chmod +x install.sh && sh install.sh
 ```
 
 ## Ручная установка

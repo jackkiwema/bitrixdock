@@ -8,11 +8,11 @@ profiles:
     provider_options:
       auth_username: ./${EMAIL}
       auth_token: ./${AUTH_KEY}
-      zone_id: ./${DNS_ZONE_ID}
+      zone_id: ./${ZONE_ID}
 certificates:
   - profile: ./${PROVIDER}
     domains:
-      - "./${DOMAIN}"
+      - ./${DOMAIN}
     autorestart:
       - containers:
-          - web_server
+          - ./${WEB_SERVER_TYPE}
