@@ -48,7 +48,7 @@ services:
       - db
       - memcached
     environment:
-      - TZ=Africa/Nairobi
+      - TZ=Europe/Moscow
     stdin_open: true
     tty: true
     networks:
