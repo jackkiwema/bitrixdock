@@ -74,16 +74,16 @@ cp -f .env_template .env
 
 
 ```
-COMPOSE_PROJECT_NAME=bitrixdock  # Имя проекта. Используется для наименования контейнеров
-PHP_VERSION=php74                # Версия php
-WEB_SERVER_TYPE=nginx            # Веб-сервер nginx/apache
-DB_SERVER_TYPE=mysql             # Сервер базы данных mysql/percona
-MYSQL_DATABASE=bitrix            # Имя базы данных
-MYSQL_USER=bitrix                # Пользователь базы данных
-MYSQL_PASSWORD=123               # Пароль для доступа к базе данных
-MYSQL_ROOT_PASSWORD=123          # Пароль для пользователя root от базы данных
-INTERFACE=0.0.0.0                # На данный интерфейс будут проксироваться порты
-SITE_PATH=/var/www/bitrix        # Путь к директории Вашего сайта
+COMPOSE_PROJECT_NAME=bitrixdock  # Project Name. Used to name containers
+PHP_VERSION=php74                # php Version
+WEB_SERVER_TYPE=nginx            # Web Server nginx/apache
+DB_SERVER_TYPE=mysql             # Database Server mysql/percona
+MYSQL_DATABASE=bitrix            # Database Name
+MYSQL_USER=bitrix                # Database User
+MYSQL_PASSWORD=123               # Password for accessing the Database
+MYSQL_ROOT_PASSWORD=123          # Database Root user password
+INTERFACE=0.0.0.0                # Ports will be proxied to this interface
+SITE_PATH=/var/www/bitrix        # Path to site directory
 
 ```
 </p>
@@ -112,7 +112,7 @@ docker compose -p bitrixdock stop
 docker compose -p bitrixdock down
 ```
 ## Как заполнять подключение к БД
-![db](https://raw.githubusercontent.com/bitrixdock/bitrixdock/master/assets/db.png)
+![db](https://raw.githubusercontent.com/jackkiwema/bitrixdock/master/assets/db.png)
 
 ## Примечание
 - По умолчанию стоит папка ```/var/www/bitrix/```
